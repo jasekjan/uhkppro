@@ -47,7 +47,7 @@
 	</c:forEach>
 </table>
 
-<table>
+<!--table>
 	<thead>
 		<th>Parcela</th>
 	</thead>
@@ -67,7 +67,7 @@
 			</select></td>
 		</tr>
 	</c:forEach>
-</table>
+</table-->
 
 <table class="table-buttons">
 	<tr>

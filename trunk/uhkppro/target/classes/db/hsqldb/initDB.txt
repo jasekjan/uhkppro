@@ -1,0 +1,61 @@
+CREATE TABLE klienti(
+	id INTEGER NOT NULL IDENTITY PRIMARY KEY,
+	city VARCHAR(30),
+	email VARCHAR(50),
+	firstname VARCHAR(50),
+	lastname VARCHAR(50),
+	phonecontact VARCHAR(15),
+	street VARCHAR(50),
+	zip VARCHAR(5)
+	);
+CREATE INDEX klienti_lastname ON klienti(lastname);
+
+CREATE TABLE katastry (
+	id INTEGER NOT NULL IDENTITY PRIMARY KEY,
+	kod varchar(6),
+	nazev VARCHAR(40)
+);
+
+CREATE TABLE lvs (
+	id INTEGER NOT NULL IDENTITY PRIMARY KEY,
+	cislo varchar(5),
+	katastr_id INTEGER NOT NULL
+);
+alter table lvs add constraint fk_katastr foreign key (katastr_id) references katastry(id);
+
+CREATE TABLE podily (
+	id INTEGER NOT NULL IDENTITY PRIMARY KEY,
+	citatel varchar(6),
+	jmenovatel varchar(7),
+	klient_id INTEGER NOT NULL,
+	lv_id INTEGER NOT NULL
+);
+alter table podily add constraint fk_podily_klient foreign key (klient_id) references klienti(id);
+alter table podily add constraint fk_podily_lv foreign key (lv_id) references lvs(id);
+
+CREATE TABLE parcely(
+	id INTEGER NOT NULL IDENTITY PRIMARY KEY,
+	kmenovecislo varchar(5), 
+	podlomenicisla varchar(3),
+	vymera varchar(20),
+	lv_id INTEGER NOT NULL
+);
+alter table parcely add constraint fk_parcely_lv foreign key (lv_id) references lvs(id); 
+
+CREATE TABLE smlouvy(
+	id INTEGER NOT NULL IDENTITY PRIMARY KEY,
+	identifikator VARCHAR(30),
+	sazbaha NUMERIC(2),
+	ucinnostod DATE,
+	ucinnostdo DATE,
+	klient_id INTEGER NOT NULL
+);
+alter table smlouvy add constraint fk_smlouvy_klient foreign key (klient_id) references klienti(id);
+
+CREATE TABLE par_ve_sml (
+	id INTEGER NOT NULL IDENTITY PRIMARY KEY,
+	parcela_id INTEGER NOT NULL,
+	smlouva_id INTEGER NOT NULL
+);
+alter table par_ve_sml add constraint fk_parcela_parsml foreign key (parcela_id) references parcely(id);
+alter table par_ve_sml add constraint fk_smlouva_parsml foreign key (smlouva_id) references smlouvy(id);

@@ -49,17 +49,24 @@
 	</table>
 
 	<h2">Parcely</h2>
+	<INPUT type="button" value="Přidat" onclick="addRow('dataTable')" />
+	<INPUT type="button" value="Smazat vybrané"
+		onclick="deleteRow('dataTable')" />
 
-	<table border="1" style="border: 2px solid black;" align-right="210px">
+	<table id="dataTable" border="1" style="border: 2px solid black;"
+		align-right="210px">
 		<thead>
-			<th>Číslo parcely</th>
-			<th>Výměra</th>
+			<th></th>
+			<th align="right" >Kmenové č. parc.</th>
+			<th>Podlomení č. parc.</th>
+			<th align="right">Výměra (m<sup>2</sup>)</th>
 		</thead>
 		<c:forEach var="parsm" items="${smlouva.parSml}">
 			<tr>
-				<td>${parsm.parcela.kmenoveCislo}/${parsm.parcela.podlomeniCisla
-					}</td>
-				<td>${parsm.parcela.vymera }</td>
+				<TD><INPUT type="checkbox" name="chk" /></TD>
+				<td align="right">${parsm.parcela.kmenoveCislo}</td>
+				<td>${parsm.parcela.podlomeniCisla}</td>
+				<td align="right">${parsm.parcela.vymera }</td>
 			</tr>
 		</c:forEach>
 	</table>

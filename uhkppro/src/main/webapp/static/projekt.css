@@ -1,0 +1,135 @@
+body,div,td {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #666;
+}
+
+body {
+	background-color: #CCF0D7;
+	background-image: url(../static/obrazek_louka.png);
+	background-position: top center;
+	background-repeat: no-repeat;
+	text-align: left;
+	min-width: 600px;
+	margin-top: 140px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+a:link {
+	color: #54A06C;
+}
+
+a:hover {
+	color: #54A26C;
+}
+
+a:active {
+	color: #7db223;
+}
+
+a:visited {
+	color: #047828;
+}
+
+table {
+	border-collapse: collapse
+}
+
+th {
+	text-align: left;
+	background-color: #CCF0D7
+}
+
+ul li {
+	padding: 5px
+}
+
+tr:nth-child(odd) {
+	background-color: #CCFED7;
+}
+
+tr:nth-child(even) {
+	background-color: #CCF0D7;
+}
+
+td {
+	text-align: left
+}
+
+tr {
+	height: 35px
+}
+
+#main {
+	margin: 0 auto;
+	position: relative;
+	top: 35px;
+	left: 0px;
+	width: 1000px;
+	text-align: left;
+}
+
+.footer {
+	background:#fff;
+	border:none;
+	margin-top:20px;
+	border-top:1px solid #999999;
+	width:100%;
+}
+
+.footer td {
+	text-align:center;
+	color:#999999;
+}
+
+.vertical_menu {
+	position: relative;
+	padding: 8px;
+	float : left;
+	width: 160px;
+	text-align: left;
+	margin-right: 50px;
+}
+
+.vertical_menu_r {
+	position: relative;
+	float : right;
+	width: 160px;
+	text-align: left;
+}
+
+.vertical_menu li {
+	display: block;
+	height: 25px;
+	background-color: #CCFED7;
+	list-style: none;
+	font-size: 18px;
+	margin: 5px;
+}
+
+.vertical_menu_r li {
+	display: block;
+	height: 25px;
+	background-color: #CCFED7;
+	list-style: none;
+	font-size: 18px;
+}
+
+.vertical_menu li a {
+	text-decoration: none;
+	color: black;
+}
+
+.vertical_menu_r li a {
+	text-decoration: none;
+	color: black;
+}
+
+.vertical_menu li a:hover {
+	text-decoration: underline;
+}
+
+.vertical_menu_r li a:hover {
+	text-decoration: underline;
+}

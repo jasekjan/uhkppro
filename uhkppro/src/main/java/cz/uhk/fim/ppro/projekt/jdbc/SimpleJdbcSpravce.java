@@ -154,6 +154,11 @@ public class SimpleJdbcSpravce implements Spravce {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	public void storeParcelaSmlouva(ParcelaSmlouva parSml)
+			throws DataAccessException {
+		// TODO Auto-generated method stub
+		
+	}
 
 
 }

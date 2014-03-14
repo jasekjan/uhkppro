@@ -61,12 +61,12 @@
 			<th>Podlomení č. parc.</th>
 			<th align="right">Výměra (m<sup>2</sup>)</th>
 		</thead>
-		<c:forEach var="parsm" items="${smlouva.parSml}">
+		<c:forEach var="parsm" items="${smlouva.parcely}">
 			<tr>
 				<TD><INPUT type="checkbox" name="chk" /></TD>
-				<td align="right">${parsm.parcela.kmenoveCislo}</td>
-				<td>${parsm.parcela.podlomeniCisla}</td>
-				<td align="right">${parsm.parcela.vymera }</td>
+				<td align="right">${parsm.kmenoveCislo}</td>
+				<td>${parsm.podlomeniCisla}</td>
+				<td align="right">${parsm.vymera }</td>				
 			</tr>
 		</c:forEach>
 	</table>

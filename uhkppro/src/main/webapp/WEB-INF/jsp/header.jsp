@@ -17,7 +17,7 @@
 
 		var table = document.getElementById(tableID);
 		var rowCount = table.rows.length;
-		var row = table.insertRow(rowCount);
+		var row = table.insertRow(rowCount);	
 		
 	    var cell1 = row.insertCell(0);
 	    var element1 = document.createElement("input");
@@ -39,7 +39,6 @@
 	    var element4 = document.createElement("input");
 	    element4.type = "text";
 	    cell4.appendChild(element4);
-		
 	}
 
 	function deleteRow(tableID) {

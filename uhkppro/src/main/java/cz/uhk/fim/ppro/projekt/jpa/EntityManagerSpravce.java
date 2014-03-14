@@ -1,10 +1,9 @@
 package cz.uhk.fim.ppro.projekt.jpa;
 
-import java.beans.PropertyEditorSupport;
 import java.sql.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Collection;
+
+import javax.persistence.PersistenceContextType;
 import javax.persistence.Query;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -12,9 +11,6 @@ import javax.persistence.PersistenceContext;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
-
 import cz.uhk.fim.ppro.projekt.Katastr;
 import cz.uhk.fim.ppro.projekt.Klient;
 import cz.uhk.fim.ppro.projekt.ListVlastnictvi;
@@ -27,7 +23,7 @@ import cz.uhk.fim.ppro.projekt.Spravce;
 @Transactional
 public class EntityManagerSpravce implements Spravce {
 
-	@PersistenceContext
+	@PersistenceContext( type=PersistenceContextType.EXTENDED)
 	private EntityManager em;
 
 	@SuppressWarnings("unchecked")
@@ -229,12 +225,5 @@ public class EntityManagerSpravce implements Spravce {
 		smlouva.setId(merged.getId());
 
 	}
-
-	public Collection<ParcelaSmlouva> getParcelaSmlovuy()
-			throws DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 
 }

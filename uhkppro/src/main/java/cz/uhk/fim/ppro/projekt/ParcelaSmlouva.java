@@ -15,7 +15,7 @@ public class ParcelaSmlouva extends BaseEntity {
 	public Parcela getParcela() {
 		return parcela;
 	}
-
+	
 	public void setParcela(Parcela parcela) {
 		this.parcela = parcela;
 	}

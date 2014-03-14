@@ -37,37 +37,15 @@
 		<th>Výměra</th>
 		<th></th>
 	</thead>
-	<c:forEach var="parsm" items="${smlouva.parSml}">
+	<c:forEach var="parsm" items="${smlouva.parcely}">
 		<tr>
-			<td>${parsm.parcela.kmenoveCislo}/${parsm.parcela.podlomeniCisla
+			<td>${parsm.kmenoveCislo}/${parsm.podlomeniCisla
 				}</td>
-			<td>${parsm.parcela.vymera }</td>
+			<td>${parsm.vymera }</td>
 			<td>Uprav</td>
 		</tr>
 	</c:forEach>
 </table>
-
-<!--table>
-	<thead>
-		<th>Parcela</th>
-	</thead>
-	<c:forEach var="parsm" items="${smlouva.parSml}">
-		<tr>
-			<td><select>
-					<c:forEach var="item" items="${smlouva.parSml}">
-						<c:choose>
-							<c:when test="${cur.status == item}">
-								<option selected>${item.parcela.kmenoveCislo}/${item.parcela.podlomeniCisla}</option>
-							</c:when>
-							<c:otherwise>
-								<option>${item.parcela.kmenoveCislo}/${item.parcela.podlomeniCisla}</option>
-							</c:otherwise>
-						</c:choose>
-					</c:forEach>
-			</select></td>
-		</tr>
-	</c:forEach>
-</table-->
 
 <table class="table-buttons">
 	<tr>

@@ -4,9 +4,10 @@ import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -18,7 +19,7 @@ public class Smlouva extends BaseEntity {
 	private Date ucinnostDo;
 	private Klient klient;
 	private Integer sazbaHa;
-	private Set<ParcelaSmlouva> parSml;
+	private Set<Parcela> parcely;
 
 	public String getIdentifikator() {
 		return identifikator;
@@ -61,13 +62,14 @@ public class Smlouva extends BaseEntity {
 		this.sazbaHa = sazbaHa;
 	}
 
-	@OneToMany(fetch=FetchType.EAGER, mappedBy="smlouva")
-	public Set<ParcelaSmlouva> getParSml() {
-		return parSml;
+	@ManyToMany
+	@JoinTable(name="par_ve_sml", joinColumns={@JoinColumn(name="smlouva_id")}, inverseJoinColumns={@JoinColumn(name="parcela_id")})
+	public Set<Parcela> getParcely() {
+		return parcely;
 	}
 
-	public void setParSml(Set<ParcelaSmlouva> parSml) {
-		this.parSml = parSml;
+	public void setParcely(Set<Parcela> parcely) {
+		this.parcely = parcely;
 	}
 
 }

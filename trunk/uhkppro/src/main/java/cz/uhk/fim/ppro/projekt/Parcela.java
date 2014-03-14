@@ -3,9 +3,10 @@ package cz.uhk.fim.ppro.projekt;
 import java.util.Set;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -16,7 +17,7 @@ public class Parcela extends BaseEntity{
 	private Integer podlomeniCisla;
 	private float vymera;
 	private ListVlastnictvi lv;
-	private Set<ParcelaSmlouva> parSml;
+	private Set<Smlouva> smlouvy;
 	
 	public Integer getKmenoveCislo() {
 		return kmenoveCislo;
@@ -45,12 +46,13 @@ public class Parcela extends BaseEntity{
 		this.lv = lv;
 	}
 	
-	@OneToMany(fetch=FetchType.EAGER, mappedBy="parcela")
-	public Set<ParcelaSmlouva> getParSml() {
-		return parSml;
+	@ManyToMany
+	@JoinTable(name="par_ve_sml", joinColumns={@JoinColumn(name="parcela_id")}, inverseJoinColumns={@JoinColumn(name="smlouva_id")})
+	public Set<Smlouva> getSmlouvy() {
+		return smlouvy;
 	}
 	
-	public void setParSml(Set<ParcelaSmlouva> parSml){
-		this.parSml = parSml;
+	public void setSmlouvy(Set<Smlouva> smlouvy){
+		this.smlouvy = smlouvy;
 	}
 }

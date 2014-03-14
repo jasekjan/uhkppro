@@ -11,7 +11,6 @@ public interface Spravce {
 	Collection<ListVlastnictvi> getListyVlastnictvi() throws DataAccessException;
 	Collection<Katastr> getKatastry() throws DataAccessException;
 	Collection<Smlouva> getSmlouvy() throws DataAccessException;
-	Collection<ParcelaSmlouva> getParcelaSmlovuy() throws DataAccessException;
 	
 	Collection<Klient> findKlient(String lastName) throws DataAccessException;
 	Collection<Smlouva> findSmlouva(String lastName, String identifikator, Date datumOd) throws DataAccessException;

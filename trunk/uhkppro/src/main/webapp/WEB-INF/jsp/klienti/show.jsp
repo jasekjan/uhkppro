@@ -51,12 +51,12 @@
 					pattern="d.M.yyyy" /></td>
 			<td>
 				<table>
-					<c:forEach var="parsml" items="${smlouva.parSml}">
+					<c:forEach var="parsml" items="${smlouva.parcely}">
 						<tr>
-							<td>${parsml.parcela.kmenoveCislo}/${parsml.parcela.podlomeniCisla}
-								<c:forEach var="podil" items="${parsml.parcela.lv.podily}">
+							<td>${parsml.kmenoveCislo}/${parsml.podlomeniCisla}
+								<c:forEach var="podil" items="${parsml.lv.podily}">
 									<c:if test="${podil.klient.id == klient.id}">
-										<td align="left">( ${parsml.parcela.lv.cislo} - ${parsml.parcela.lv.katastr.nazev} ) -- ${podil.citatel}/${podil.jmenovatel}</td>
+										<td align="left">( ${parsml.lv.cislo} - ${parsml.lv.katastr.nazev} ) -- ${podil.citatel}/${podil.jmenovatel}</td>
 									</c:if>
 								</c:forEach>
 						</tr>
@@ -71,5 +71,4 @@
 	</c:forEach>
 </table>
 
-<td><a href="<spring:url value="/klienti" htmlEscape="true" />">Klienti</a></td>
 <%@ include file="/WEB-INF/jsp/footer.jsp"%>

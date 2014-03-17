@@ -35,10 +35,15 @@
 	    element3.type= "text";
 	    cell3.appendChild(element3);
 	    
-	    cell4 = row.insertCell(3);
+	    var cell4 = row.insertCell(3);
 	    var element4 = document.createElement("input");
 	    element4.type = "text";
 	    cell4.appendChild(element4);
+	    
+	    var cell5 = row.insertCell(4);
+	    var element5 = document.createElement("input");
+	    element5.type = "button"
+	    cell5.appendChild(element5);
 	}
 
 	function deleteRow(tableID) {

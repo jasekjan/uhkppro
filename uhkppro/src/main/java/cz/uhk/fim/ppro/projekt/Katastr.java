@@ -8,11 +8,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="KATASTRY")
+@Table(name = "KATASTRY")
 public class Katastr extends BaseEntity {
-	
-	private Integer kod;	
-	private String nazev;	
+
+	private Integer kod;
+	private String nazev;
 	private Set<ListVlastnictvi> lvs;
 
 	public Integer getKod() {
@@ -31,7 +31,7 @@ public class Katastr extends BaseEntity {
 		this.nazev = nazev;
 	}
 
-	@OneToMany(fetch=FetchType.EAGER, mappedBy="katastr")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "katastr")
 	public Set<ListVlastnictvi> getLvs() {
 		return lvs;
 	}
@@ -39,6 +39,10 @@ public class Katastr extends BaseEntity {
 	public void setLvs(Set<ListVlastnictvi> lvs) {
 		this.lvs = lvs;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return nazev + '(' + kod.toString() + ')';
+	}
+
 }

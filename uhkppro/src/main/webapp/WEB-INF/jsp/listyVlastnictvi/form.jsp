@@ -22,13 +22,12 @@
 <form:form modelAttribute="listVlastnictvi" method="${method}">
 	<table>
 		<tr>
-			<th>Číslo: <form:errors path="cislo" cssClass="errors" /> <br /> <form:input
-					path="cislo" size="30" maxlength="80" />
+			<th>Číslo: <form:errors path="cislo" cssClass="errors" /> <br />
+				<form:input path="cislo" size="30" maxlength="80" />
 			</th>
 		</tr>
 		<tr>
-			<th>Název KÚ: <form:errors path="katastr.nazev" cssClass="errors" /> <br />
-				<form:input path="katastr.nazev" autocomplete="on" size="30" maxlength="80" />
+			<th>Název KÚ: <form:select path="katastr" items="${katastry}" />
 			</th>
 		</tr>
 		<tr>

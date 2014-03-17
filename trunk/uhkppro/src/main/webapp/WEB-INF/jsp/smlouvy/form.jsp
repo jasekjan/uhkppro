@@ -57,16 +57,22 @@
 		align-right="210px">
 		<thead>
 			<th></th>
-			<th align="right" >Kmenové č. parc.</th>
+			<th align="right">Kmenové č. parc.</th>
 			<th>Podlomení č. parc.</th>
-			<th align="right">Výměra (m<sup>2</sup>)</th>
+			<th align="right">Výměra (m<sup>2</sup>)
+			</th>
 		</thead>
 		<c:forEach var="parsm" items="${smlouva.parcely}">
 			<tr>
 				<TD><INPUT type="checkbox" name="chk" /></TD>
-				<td align="right">${parsm.kmenoveCislo}</td>
-				<td>${parsm.podlomeniCisla}</td>
-				<td align="right">${parsm.vymera }</td>				
+				<form:form modelAttribute="parcela" method="${method}}">
+					<td align="right">${parsm.kmenoveCislo}</td>
+					<td>${parsm.podlomeniCisla}</td>
+					<td align="right">${parsm.vymera }</td>
+					<td><p class="submit">
+							<input type="submit" value="OK" />
+						</p></td>
+				</form:form>
 			</tr>
 		</c:forEach>
 	</table>

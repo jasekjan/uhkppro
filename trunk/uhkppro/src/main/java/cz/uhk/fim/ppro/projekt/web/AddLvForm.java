@@ -1,5 +1,7 @@
 package cz.uhk.fim.ppro.projekt.web;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import cz.uhk.fim.ppro.projekt.Katastr;
 import cz.uhk.fim.ppro.projekt.ListVlastnictvi;
 import cz.uhk.fim.ppro.projekt.Spravce;
 import cz.uhk.fim.ppro.projekt.validation.ListVlastnictviValidator;
@@ -35,6 +38,11 @@ public class AddLvForm {
 	@Autowired
 	public AddLvForm(Spravce spravce) {
 		this.spravce = spravce;
+	}
+	
+	@ModelAttribute("katastry")
+	public Collection<Katastr> populateKatastry() {
+		return this.spravce.getKatastry();
 	}
 
 	@InitBinder

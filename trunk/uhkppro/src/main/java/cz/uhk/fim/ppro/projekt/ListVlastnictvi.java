@@ -16,7 +16,7 @@ public class ListVlastnictvi extends BaseEntity {
 	private Set<Parcela> parcely;
 	private Set<Podil> podily;
 
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	public Katastr getKatastr() {
 		return katastr;
 	}

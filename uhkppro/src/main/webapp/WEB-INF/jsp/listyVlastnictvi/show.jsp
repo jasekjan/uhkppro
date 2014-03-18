@@ -4,41 +4,34 @@
 <%@ include file="/WEB-INF/jsp/header.jsp"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-<h2>Informace o LV</h2>
+<div class="content">
+	<h2>Informace o LV</h2>
 
-<div style="margin-left: 210px;">
-	<table>
+	<ul class="vertical_menu_r">
+		<li><spring:url value="{lvId}/edit" var="editUrl">
+				<spring:param name="lvId" value="${listVlastnictvi.id}" />
+			</spring:url> <a href="${fn:escapeXml(editUrl)}">Uprav LV</a></li>
+
+	</ul>
+	<table class="lvtab">
 		<tr>
-			<th>Číslo</th>
-			<td><b>${listVlastnictvi.cislo}</b></td>
+			<td><b>Číslo</b></td>
+			<td>${listVlastnictvi.cislo}</td>
 		</tr>
 		<tr>
-			<th>Katastr</th>
+			<td><b>Katastr</b></td>
 			<td>${listVlastnictvi.katastr.kod}
 				${listVlastnictvi.katastr.nazev}</td>
 		</tr>
 	</table>
 	<table>
-		<tr>
-			<c:forEach var="podil" items="${listVlastnictvi.podily}">
-				<tr>
-					<td>${podil.citatel}/${podil.jmenovatel }
-						${podil.klient.lastName } ${podil.klient.firstName }</td>
-				</tr>
-			</c:forEach>
-		</tr>
-	</table>
+		<c:forEach var="podil" items="${listVlastnictvi.podily}">
+			<tr>
+				<td>${podil.citatel}/${podil.jmenovatel }</td>
+				<td>${podil.klient.lastName } ${podil.klient.firstName }</td>
+			</tr>
+		</c:forEach>
 
-	<table class="table-buttons">
-		<tr>
-			<td colspan="2" align="center"><spring:url value="{lvId}/edit"
-					var="editUrl">
-					<spring:param name="lvId" value="${listVlastnictvi.id}" />
-				</spring:url> <a href="${fn:escapeXml(editUrl)}">Uprav LV</a></td>
-		</tr>
 	</table>
-	<a href="<spring:url value="/listyVlastnictvi" htmlEscape="true" />">Listy
-		vlastnictví</a>
-
 </div>
 <%@ include file="/WEB-INF/jsp/footer.jsp"%>

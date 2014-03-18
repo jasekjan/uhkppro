@@ -80,7 +80,7 @@ public class SimpleJdbcSpravce implements Spravce {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	public Collection<Klient> findKlient(String lastName)
+	public Collection<Klient> findKlienti(String lastName)
 			throws DataAccessException {
 		// TODO Auto-generated method stub
 		return null;

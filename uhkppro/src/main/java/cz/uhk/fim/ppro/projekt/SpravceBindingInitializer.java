@@ -32,6 +32,7 @@ public class SpravceBindingInitializer implements WebBindingInitializer {
 		dateFormat.setLenient(false);
 		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
 		binder.registerCustomEditor(Katastr.class, new KatastrEditor(this.spravce));
+		binder.registerCustomEditor(Klient.class, new KlientEditor(this.spravce));
 	}
 
 }

@@ -82,5 +82,9 @@ public class Klient extends BaseEntity{
 		this.podily = podily;
 	}
 	
+	@Override
+	public String toString() {
+		return this.getLastName()  +' '+this.getFirstName()+'(' + this.getCity() + ')';
+	}
 	
 }

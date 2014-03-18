@@ -36,20 +36,40 @@ table {
 	border-collapse: collapse
 }
 
+table.smltab {
+	width: 300px
+}
+
+table.klitab {
+	width: 300px
+}
+
+table.partab {
+	width: 300px
+}
+
+table.lvtab {
+	width: 300px
+}
+
+table.kattab {
+	width: 300px
+}
+
 th {
 	text-align: left;
 	background-color: #CCF0D7
 }
 
-ul li {
+ul.tableList li.tableList {
 	padding: 5px
 }
 
-tr:nth-child(odd) {
+tr:nth-child(odd).tableList {
 	background-color: #CCFED7;
 }
 
-tr:nth-child(even) {
+tr:nth-child(even).tableList {
 	background-color: #CCF0D7;
 }
 
@@ -85,18 +105,24 @@ tr {
 
 .vertical_menu {
 	position: relative;
-	padding: 8px;
+	padding: 10px;
 	float : left;
 	width: 160px;
 	text-align: left;
 	margin-right: 50px;
 }
 
+.content {
+	margin-left: 220px
+}
+
 .vertical_menu_r {
-	position: relative;
+	position: fixed;
+	padding: 10px;
 	float : right;
 	width: 160px;
 	text-align: left;
+	margin-left: 600px;;
 }
 
 .vertical_menu li {

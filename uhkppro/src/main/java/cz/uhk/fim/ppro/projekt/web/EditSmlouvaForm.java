@@ -1,6 +1,8 @@
 
 package cz.uhk.fim.ppro.projekt.web;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import cz.uhk.fim.ppro.projekt.Klient;
 import cz.uhk.fim.ppro.projekt.Smlouva;
 import cz.uhk.fim.ppro.projekt.Spravce;
 import cz.uhk.fim.ppro.projekt.validation.SmlouvaValidator;
@@ -36,6 +39,11 @@ public class EditSmlouvaForm {
 	@Autowired
 	public EditSmlouvaForm(Spravce spravce) {
 		this.spravce = spravce;
+	}
+
+	@ModelAttribute("klienti")
+	public Collection<Klient> populateKlienti() {
+		return this.spravce.getKlienti();
 	}
 
 	@InitBinder

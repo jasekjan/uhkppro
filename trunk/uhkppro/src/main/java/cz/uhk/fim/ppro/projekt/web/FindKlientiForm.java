@@ -4,6 +4,7 @@ import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
@@ -14,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import cz.uhk.fim.ppro.projekt.Klient;
 import cz.uhk.fim.ppro.projekt.Spravce;
 
+@Controller
 public class FindKlientiForm {
+	
 	private final Spravce spravce;
 
 
@@ -34,7 +37,7 @@ public class FindKlientiForm {
 		return "klienti/search";
 	}
 
-	@RequestMapping(value = "/klienti", method = RequestMethod.GET)
+	@RequestMapping(value = "/klients", method = RequestMethod.POST)
 	public String processSubmit(Klient klient, BindingResult result, Model model) {
 
 		// allow parameterless GET request for /owners to return all records
@@ -47,12 +50,12 @@ public class FindKlientiForm {
 		if (results.size() < 1) {
 			// no owners found
 			result.rejectValue("lastName", "notFound", "not found");
-			return "owners/search";
+			return "klienti/search";
 		}
 		if (results.size() > 1) {
 			// multiple owners found
 			model.addAttribute("selections", results);
-			return "owners/list";
+			return "klienti/list";
 		}
 		else {
 			// 1 owner found

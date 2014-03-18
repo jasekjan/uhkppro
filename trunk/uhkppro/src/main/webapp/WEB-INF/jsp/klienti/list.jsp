@@ -3,9 +3,9 @@
 <%@ include file="/WEB-INF/jsp/includes.jsp" %>
 <%@ include file="/WEB-INF/jsp/header.jsp" %>
 
-<h2>Owners:</h2>
+<h2>Klienti:</h2>
 
-<table>
+<table width="500">
   <thead>
     <th>Jméno</th>
     <th>Ulice</th>
@@ -16,7 +16,7 @@
     <tr>
       <td>
           <spring:url value="klienti/{klientId}" var="klientUrl">
-              <spring:param name="ownerId" value="${owner.id}"/>
+              <spring:param name="klientId" value="${klient.id}"/>
           </spring:url>
           <a href="${fn:escapeXml(klientUrl)}">${klient.firstName} ${klient.lastName}</a>
       </td>

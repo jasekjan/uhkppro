@@ -12,7 +12,7 @@ public interface Spravce {
 	Collection<Katastr> getKatastry() throws DataAccessException;
 	Collection<Smlouva> getSmlouvy() throws DataAccessException;
 	
-	Collection<Klient> findKlient(String lastName) throws DataAccessException;
+	Collection<Klient> findKlienti(String lastName) throws DataAccessException;
 	Collection<Smlouva> findSmlouva(String lastName, String identifikator, Date datumOd) throws DataAccessException;
 	Collection<Parcela> findParcela2(String lastName, Integer katastr, Integer lv, String identifikatorSml) throws DataAccessException;
 	Collection<Parcela> findParcela(Integer id) throws DataAccessException;

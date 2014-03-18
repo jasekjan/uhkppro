@@ -82,7 +82,7 @@ public class EntityManagerSpravce implements Spravce {
 
 	@Transactional(readOnly = true)
 	@SuppressWarnings("unchecked")
-	public Collection<Klient> findKlient(String lastName)
+	public Collection<Klient> findKlienti(String lastName)
 			throws DataAccessException {
 		Query q = this.em
 				.createQuery("SELECT klient FROM Klient klient WHERE klient.lastName like :lastName");

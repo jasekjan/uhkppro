@@ -2,10 +2,6 @@ package cz.uhk.fim.ppro.projekt;
 
 import java.beans.PropertyEditorSupport;
 
-/**
- * @author Mark Fisher
- * @author Juergen Hoeller
- */
 public class KatastrEditor extends PropertyEditorSupport {
 
 	private final Spravce spravce;

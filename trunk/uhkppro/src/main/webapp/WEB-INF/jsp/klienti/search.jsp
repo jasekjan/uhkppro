@@ -6,7 +6,7 @@
 
 <h2>Find Owners:</h2>
 
-<spring:url value="/klienti" var="formUrl"/>
+<!-- spring:url value="/klienti" var="formUrl"/>
 <form:form modelAttribute="klient" action="${fn:escapeXml(formUrl)}" method="get">
   <table>
     <tr>
@@ -22,7 +22,7 @@
   </table>
 </form:form>
 
-<br/>
+<br/ -->
 <a href='<spring:url value="/klienti/novy" htmlEscape="true"/>'>Nový klient</a>
 
 <%@ include file="/WEB-INF/jsp/footer.jsp" %>

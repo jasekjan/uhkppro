@@ -4,27 +4,25 @@
 <%@ include file="/WEB-INF/jsp/header.jsp"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
-<h2>Informace o parcele</h2>
+<div class="content">
+	<h2>Informace o parcele</h2>
 
-<table>
-	<tr>
-		<th>Číslo parcely</th>
-		<td><b>${parcela.kmenoveCislo}/${parcela.podlomeniCisla }</b></td>
-	</tr>
-	<tr>
-		<th>Výměra</th>
-		<td>${parcela.vymera}</td>
-	</tr>
-</table>
-<table class="table-buttons">
-	<tr>
-		<td colspan="2" align="center"><spring:url
-				value="{parcelaId}/edit" var="editUrl">
+	<ul class="vertical_menu_r">
+		<li><spring:url value="{parcelaId}/edit" var="editUrl">
 				<spring:param name="parcelaId" value="${parcela.id}" />
-			</spring:url> <a href="${fn:escapeXml(editUrl)}">Uprav parcelu</a></td>
+			</spring:url> <a href="${fn:escapeXml(editUrl)}">Uprav parcelu</a></li>
+	</ul>
 
-	</tr>
-</table>
+	<table class="partab">
+		<tr>
+			<td><b>Číslo parcely</b></td>
+			<td>${parcela.kmenoveCislo}/${parcela.podlomeniCisla }</td>
+		</tr>
+		<tr>
+			<td><b>Výměra</b></td>
+			<td>${parcela.vymera} ha</td>
+		</tr>
+	</table>
 
-<a href="<spring:url value="/parcely" htmlEscape="true" />">Parcely</a>
+</div>
 <%@ include file="/WEB-INF/jsp/footer.jsp"%>

@@ -87,7 +87,7 @@ public class EntityManagerSpravce implements Spravce {
 		Query q = this.em
 				.createQuery("SELECT klient FROM Klient klient WHERE klient.lastName like :lastName");
 
-		q.setParameter(1, lastName);
+		q.setParameter("lastName", lastName + "%");
 
 		return q.getResultList();
 	}

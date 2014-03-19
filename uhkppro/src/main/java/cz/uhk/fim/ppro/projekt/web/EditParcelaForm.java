@@ -1,6 +1,8 @@
 
 package cz.uhk.fim.ppro.projekt.web;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,17 +16,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import cz.uhk.fim.ppro.projekt.ListVlastnictvi;
 import cz.uhk.fim.ppro.projekt.Parcela;
 import cz.uhk.fim.ppro.projekt.Spravce;
 import cz.uhk.fim.ppro.projekt.validation.ParcelaValidator;
 
-/**
- * JavaBean Form controller that is used to edit an existing <code>Owner</code>.
- * 
- * @author Juergen Hoeller
- * @author Ken Krebs
- * @author Arjen Poutsma
- */
 @Controller
 @RequestMapping("/parcely/{parcelaId}/edit")
 @SessionAttributes(types = Parcela.class)
@@ -36,6 +32,11 @@ public class EditParcelaForm {
 	@Autowired
 	public EditParcelaForm(Spravce spravce) {
 		this.spravce = spravce;
+	}
+	
+	@ModelAttribute("listyVlastnictvi")
+	public Collection<ListVlastnictvi> populateListyVlastnictvi() {
+		return this.spravce.getListyVlastnictvi();
 	}
 
 	@InitBinder

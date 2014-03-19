@@ -40,7 +40,7 @@ public class EntityManagerSpravce implements Spravce {
 	public Collection<Parcela> getParcely() throws DataAccessException {
 		return this.em
 				.createQuery(
-						"SELECT parcela FROM Parcela parcela ORDER BY parcela.kmenoveCislo, parcela.podlomeniCisla")
+						"SELECT parcela FROM Parcela parcela ORDER BY parcela.lv.katastr.kod, parcela.lv.cislo, parcela.kmenoveCislo, parcela.podlomeniCisla asc")
 				.getResultList();
 	}
 

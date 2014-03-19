@@ -21,13 +21,6 @@ import cz.uhk.fim.ppro.projekt.ListVlastnictvi;
 import cz.uhk.fim.ppro.projekt.Spravce;
 import cz.uhk.fim.ppro.projekt.validation.ListVlastnictviValidator;
 
-/**
- * JavaBean Form controller that is used to edit an existing <code>Owner</code>.
- * 
- * @author Juergen Hoeller
- * @author Ken Krebs
- * @author Arjen Poutsma
- */
 @Controller
 @RequestMapping("/listyVlastnictvi/{lvId}/edit")
 @SessionAttributes(types = ListVlastnictvi.class)

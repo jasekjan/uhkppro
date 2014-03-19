@@ -1,5 +1,7 @@
 package cz.uhk.fim.ppro.projekt.web;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,18 +14,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import cz.uhk.fim.ppro.projekt.ListVlastnictvi;
 import cz.uhk.fim.ppro.projekt.Parcela;
 import cz.uhk.fim.ppro.projekt.Spravce;
 import cz.uhk.fim.ppro.projekt.validation.ParcelaValidator;
 
-/**
- * JavaBean form controller that is used to add a new <code>Owner</code> to the
- * system.
- * 
- * @author Juergen Hoeller
- * @author Ken Krebs
- * @author Arjen Poutsma
- */
 @Controller
 @RequestMapping("/parcely/novy")
 @SessionAttributes(types = Parcela.class)
@@ -40,6 +35,11 @@ public class AddParcelaForm {
 	@InitBinder
 	public void setAllowedFields(WebDataBinder dataBinder) {
 		dataBinder.setDisallowedFields("id");
+	}
+	
+	@ModelAttribute("listyVlastnictvi")
+	public Collection<ListVlastnictvi> populateListyVlastnictvi() {
+		return this.spravce.getListyVlastnictvi();
 	}
 
 	@RequestMapping(method = RequestMethod.GET)

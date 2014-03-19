@@ -3,6 +3,7 @@ package cz.uhk.fim.ppro.projekt;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -38,7 +39,7 @@ public class Parcela extends BaseEntity{
 		this.vymera = vymera;
 	}
 	
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	public ListVlastnictvi getLv() {
 		return lv;
 	}

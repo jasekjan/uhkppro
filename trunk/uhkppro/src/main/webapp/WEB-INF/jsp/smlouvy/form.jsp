@@ -53,16 +53,12 @@
 				</br>
 			</tr>
 		</table>
-
+		<br />
 		<h2">Parcely</h2>
-		<INPUT type="button" value="Přidat" onclick="addRow('dataTable')" />
-		<INPUT type="button" value="Smazat vybrané"
-			onclick="deleteRow('dataTable')" />
-
 		<table id="dataTable" border="1" style="border: 2px solid black;"
-			align-right="210px">
+			align-right="210px" width="450px">
 			<thead>
-				<th></th>
+				<th>LV</th>
 				<th align="right">Kmenové č. parc.</th>
 				<th>Podlomení č. parc.</th>
 				<th align="right">Výměra (m<sup>2</sup>)
@@ -70,15 +66,11 @@
 			</thead>
 			<c:forEach var="parsm" items="${smlouva.parcely}">
 				<tr>
-					<TD><INPUT type="checkbox" name="chk" /></TD>
-					<form:form modelAttribute="parcela" method="${method}}">
-						<td align="right">${parsm.kmenoveCislo}</td>
-						<td>${parsm.podlomeniCisla}</td>
-						<td align="right">${parsm.vymera }</td>
-						<td><p class="submit">
-								<input type="submit" value="OK" />
-							</p></td>
-					</form:form>
+					<td>${parsm.lv }</td>
+					<td align="right">${parsm.kmenoveCislo}</td>
+					<td>${parsm.podlomeniCisla}</td>
+					<td align="right">${parsm.vymera }</td>
+
 				</tr>
 			</c:forEach>
 		</table>

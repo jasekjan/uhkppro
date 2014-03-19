@@ -19,14 +19,6 @@ import cz.uhk.fim.ppro.projekt.ListVlastnictvi;
 import cz.uhk.fim.ppro.projekt.Spravce;
 import cz.uhk.fim.ppro.projekt.validation.ListVlastnictviValidator;
 
-/**
- * JavaBean form controller that is used to add a new <code>Owner</code> to the
- * system.
- * 
- * @author Juergen Hoeller
- * @author Ken Krebs
- * @author Arjen Poutsma
- */
 @Controller
 @RequestMapping("/listyVlastnictvi/novy")
 @SessionAttributes(types = ListVlastnictvi.class)

@@ -12,6 +12,7 @@
 		<c:set var="method" value="put" />
 	</c:otherwise>
 </c:choose>
+
 <div class="content">
 	<h2>
 		<c:choose>
@@ -20,15 +21,16 @@
 		</c:choose>
 	</h2>
 	<form:form modelAttribute="parcela" method="${method}">
+			List vlastnictví:
+	<form:select path="lv" items="${listyVlastnictvi}" />
+		<br />
 			Číslo parcely:
 	<form:input path="kmenoveCislo" size="5" maxlength="5" float="right" /> /
 	<form:input path="podlomeniCisla" size="5" maxlength="3" align="right" />
-
 		<br />
 			Výměra:
 	<form:input path="vymera" size="5" maxlength="80" align="center" />
 		<br />
-
 
 		<c:choose>
 			<c:when test="${parcela['new']}">
@@ -42,8 +44,7 @@
 				</p>
 			</c:otherwise>
 		</c:choose>
-		</tr>
-		</table>
+
 	</form:form>
 </div>
 <%@ include file="/WEB-INF/jsp/footer.jsp"%>

@@ -1,5 +1,4 @@
 package cz.uhk.fim.ppro.projekt;
-
 import java.util.ArrayList;
 import java.util.List;
 

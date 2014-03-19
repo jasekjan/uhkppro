@@ -15,6 +15,10 @@
 
 	<table class="partab">
 		<tr>
+			<td><b>List vlastnictví</b></td>
+			<td>${parcela.lv}
+		</tr>
+		<tr>
 			<td><b>Číslo parcely</b></td>
 			<td>${parcela.kmenoveCislo}/${parcela.podlomeniCisla }</td>
 		</tr>

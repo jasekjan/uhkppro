@@ -46,4 +46,9 @@ public class ListVlastnictvi extends BaseEntity {
 	public void setPodily(Set<Podil> podily) {
 		this.podily = podily;
 	}
+	
+	@Override
+	public String toString(){
+		return this.getCislo().toString()  +'(' + this.getKatastr().getKod().toString() + ')';
+	}
 }

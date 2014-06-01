@@ -22,7 +22,7 @@
 	</h2>
 	<form:form modelAttribute="parcela" method="${method}">
 			List vlastnictví:
-	<form:select path="lv" items="${listyVlastnictvi}" />
+	<form:select align="right" path="lv" items="${listyVlastnictvi}" />
 		<br />
 			Číslo parcely:
 	<form:input path="kmenoveCislo" size="5" maxlength="5" float="right" /> /

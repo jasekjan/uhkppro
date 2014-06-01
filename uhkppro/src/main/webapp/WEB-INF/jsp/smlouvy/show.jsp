@@ -11,7 +11,9 @@
 		<li><spring:url value="{smlouvaId}/edit" var="editUrl">
 				<spring:param name="smlouvaId" value="${smlouva.id}" />
 			</spring:url> <a href="${fn:escapeXml(editUrl)}">Uprav smlouvu</a></li>
-		<li>Vytisknout</li>
+		<li><spring:url value="print/{smlouvaId}" var="editUrl">
+				<spring:param name="smlouvaId" value="${smlouva.id}" />
+			</spring:url> <a href="${fn:escapeXml(editUrl)}">Vytisknout smlouvu</a></li>
 	</ul>
 
 	<table class="smltab">
@@ -47,12 +49,14 @@
 			<th>Výměra</th>
 			<th></th>
 		</thead>
-		<c:forEach var="parsm" items="${smlouva.parcely}">
-			<tr>
-				<td>${parsm.kmenoveCislo}/${parsm.podlomeniCisla }</td>
-				<td>${parsm.vymera }</td>
-				<td>Uprav</td>
-			</tr>
+		<c:forEach var="podil" items="${smlouva.klient.podily}">
+			<c:forEach var="parsml" items="${podil.lv.parcely }">
+				<tr>
+					<td>${parsml.kmenoveCislo}/${parsml.podlomeniCisla }</td>
+					<td>${parsml.vymera }</td>
+					<td>Uprav</td>
+				</tr>
+			</c:forEach>
 		</c:forEach>
 	</table>
 

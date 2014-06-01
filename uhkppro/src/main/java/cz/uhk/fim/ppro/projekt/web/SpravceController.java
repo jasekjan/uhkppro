@@ -106,4 +106,11 @@ public class SpravceController {
 		return mav;
 	}
 	
+	@RequestMapping("/smlouvy/print/{smlouvaId}")
+	public ModelAndView smlouvaPrintHandler(@PathVariable("smlouvaId") int smlouvaId) {
+		ModelAndView mav = new ModelAndView("smlouvy/print");
+		mav.addObject(this.spravce.loadSmlouva(smlouvaId));
+		return mav;
+	}
+	
 }

@@ -29,7 +29,6 @@ import cz.uhk.fim.ppro.projekt.Katastr;
 import cz.uhk.fim.ppro.projekt.Klient;
 import cz.uhk.fim.ppro.projekt.ListVlastnictvi;
 import cz.uhk.fim.ppro.projekt.Parcela;
-import cz.uhk.fim.ppro.projekt.ParcelaSmlouva;
 import cz.uhk.fim.ppro.projekt.Smlouva;
 import cz.uhk.fim.ppro.projekt.Spravce;
 
@@ -146,16 +145,6 @@ public class SimpleJdbcSpravce implements Spravce {
 		
 	}
 	public void storeSmlouva(Smlouva smlouva) throws DataAccessException {
-		// TODO Auto-generated method stub
-		
-	}
-	public Collection<ParcelaSmlouva> getParcelaSmlovuy()
-			throws DataAccessException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	public void storeParcelaSmlouva(ParcelaSmlouva parSml)
-			throws DataAccessException {
 		// TODO Auto-generated method stub
 		
 	}

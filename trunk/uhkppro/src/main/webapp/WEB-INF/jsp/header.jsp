@@ -78,6 +78,7 @@
 					parcely</a></li>
 
 			<li><a href="<spring:url value="/katastry" htmlEscape="true" />">Katastry</a></li>
+			<li><a href="<spring:url value="/" htmlEscape="true" />">Domů</a></li>
 		</ul>
 
 		<ul class="vertical_menu_r">

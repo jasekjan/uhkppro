@@ -49,7 +49,7 @@ public class FindKlientiForm {
 		Collection<Klient> results = this.spravce.findKlienti(klient.getLastName());
 		if (results.size() < 1) {
 			// no owners found
-			result.rejectValue("lastName", "notFound", "not found");
+			result.rejectValue("lastName", "notFound", "Nenalezeno");
 			return "klienti/search";
 		}
 		if (results.size() > 1) {

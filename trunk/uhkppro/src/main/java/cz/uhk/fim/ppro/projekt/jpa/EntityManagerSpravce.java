@@ -85,9 +85,9 @@ public class EntityManagerSpravce implements Spravce {
 	public Collection<Klient> findKlienti(String lastName)
 			throws DataAccessException {
 		Query q = this.em
-				.createQuery("SELECT klient FROM Klient klient WHERE klient.lastName like :lastName");
+				.createQuery("SELECT klient FROM Klient klient WHERE lower(klient.firstName +' '+ klient.lastName) like :lastName");
 
-		q.setParameter("lastName", lastName + "%");
+		q.setParameter("lastName", "%" + lastName.toLowerCase() + "%");
 
 		return q.getResultList();
 	}

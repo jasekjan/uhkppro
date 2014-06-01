@@ -64,14 +64,16 @@
 				<th align="right">Výměra (m<sup>2</sup>)
 				</th>
 			</thead>
-			<c:forEach var="parsm" items="${smlouva.parcely}">
-				<tr>
-					<td>${parsm.lv }</td>
-					<td align="right">${parsm.kmenoveCislo}</td>
-					<td>${parsm.podlomeniCisla}</td>
-					<td align="right">${parsm.vymera }</td>
+			<c:forEach var="podil" items="${smlouva.klient.podily}">
+				<c:forEach var="parsml" items="${podil.lv.parcely}">
+					<tr>
+						<td>${parsml.lv }</td>
+						<td align="right">${parsml.kmenoveCislo}</td>
+						<td>${parsml.podlomeniCisla}</td>
+						<td align="right">${parsml.vymera }</td>
 
-				</tr>
+					</tr>
+				</c:forEach>
 			</c:forEach>
 		</table>
 

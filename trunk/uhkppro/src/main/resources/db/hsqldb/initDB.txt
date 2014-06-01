@@ -51,11 +51,3 @@ CREATE TABLE smlouvy(
 	klient_id INTEGER NOT NULL
 );
 alter table smlouvy add constraint fk_smlouvy_klient foreign key (klient_id) references klienti(id);
-
-CREATE TABLE par_ve_sml (
-	id INTEGER NOT NULL IDENTITY PRIMARY KEY,
-	parcela_id INTEGER NOT NULL,
-	smlouva_id INTEGER NOT NULL
-);
-alter table par_ve_sml add constraint fk_parcela_parsml foreign key (parcela_id) references parcely(id);
-alter table par_ve_sml add constraint fk_smlouva_parsml foreign key (smlouva_id) references smlouvy(id);

@@ -15,7 +15,6 @@ import cz.uhk.fim.ppro.projekt.Katastr;
 import cz.uhk.fim.ppro.projekt.Klient;
 import cz.uhk.fim.ppro.projekt.ListVlastnictvi;
 import cz.uhk.fim.ppro.projekt.Parcela;
-import cz.uhk.fim.ppro.projekt.ParcelaSmlouva;
 import cz.uhk.fim.ppro.projekt.Smlouva;
 import cz.uhk.fim.ppro.projekt.Spravce;
 
@@ -70,16 +69,6 @@ public class EntityManagerSpravce implements Spravce {
 				.getResultList();
 	}
 
-	@SuppressWarnings("unchecked")
-	@Transactional
-	public Collection<ParcelaSmlouva> getParcelaSmlouvy()
-			throws DataAccessException {
-		return this.em
-				.createQuery(
-						"SELECT parcelaSmlouva from ParcelaSmlouva parcelaSmlouva ORDER BY parcelaSmlouva.smlouva_id")
-				.getResultList();
-	}
-
 	@Transactional(readOnly = true)
 	@SuppressWarnings("unchecked")
 	public Collection<Klient> findKlienti(String lastName)
@@ -97,9 +86,10 @@ public class EntityManagerSpravce implements Spravce {
 	public Collection<Smlouva> findSmlouva(String lastName,
 			String identifikator, Date datumOd) throws DataAccessException {
 		Query q = this.em
-				.createNativeQuery("select smlouva,parcela from SMLOUVA smlouva, KLIENT kl,PARCELA par, PAR_VE_SML parmsl where smlouva.klient.id = kl.id and smlouva.id=parsml.smlouva.id and"
+				/*.createNativeQuery("select smlouva,parcela from SMLOUVA smlouva, KLIENT kl,PARCELA par, PAR_VE_SML parmsl where smlouva.klient.id = kl.id and smlouva.id=parsml.smlouva.id and"
 						+ " parsml.parcela.id=parcela.id and (:lastName is null or kl.lastName like :lastName)"
-						+ " and (:identifikator is null or smlouva.identifikator like :identifikator) and (:datumOd is null or smlouva.datumod=:datumOd) ");
+						+ " and (:identifikator is null or smlouva.identifikator like :identifikator) and (:datumOd is null or smlouva.datumod=:datumOd) ");*/
+				.createNativeQuery("select * from SMLOUVA smlouva");
 
 		q.setParameter(1, lastName);
 		q.setParameter(2, lastName);
@@ -116,10 +106,11 @@ public class EntityManagerSpravce implements Spravce {
 	public Collection<Parcela> findParcela2(String lastName, Integer katastr,
 			Integer lv, String identifikatorSml) throws DataAccessException {
 		Query q = this.em
-				.createNativeQuery("select parcela from PARCELA par, Klient kl, PODIL pod, KATASTR kat, SMLOUVA sml, LV lv where "
+				/*.createNativeQuery("select parcela from PARCELA par, Klient kl, PODIL pod, KATASTR kat, SMLOUVA sml, LV lv where "
 						+ "par.lv.id=lv.id and kat.id=lv.katastr.id and lv.id=pod.lv.id and pod.klient.id=kl.id and kl.smlouvy.id=sml.id and"
 						+ "(:lastName is null or kl.lastName like :lastname) and (:katastr is null or kat.kod = :katastr) and (:lv is null or lv.cislo=:lv) and "
-						+ "(:identifikatorSml is null or sml.identifikator like :identifikatorSml");
+						+ "(:identifikatorSml is null or sml.identifikator like :identifikatorSml");*/
+				.createNativeQuery("select * from PARCELA par");
 
 		q.setParameter(1, lastName);
 		q.setParameter(2, lastName);
@@ -138,9 +129,10 @@ public class EntityManagerSpravce implements Spravce {
 	public Collection<Parcela> findParcela(Integer id)
 			throws DataAccessException {
 		Query q = this.em
-				.createNativeQuery("select parcela from PARCELA par, Klient kl, PODIL pod, KATASTR kat, PAR_VE_SML parsml, SMLOUVA sml, LV lv where "
+				/*.createNativeQuery("select parcela from PARCELA par, Klient kl, PODIL pod, KATASTR kat, PAR_VE_SML parsml, SMLOUVA sml, LV lv where "
 						+ "par.lv.id=lv.id and kat.id=lv.katastr.id and lv.id=pod.lv.id and pod.klient.id=kl.id and kl.smlouvy.id=sml.id and parsml.parcela.id=par.id and parsml.klient.id=kl.id and "
-						+ "parcela.id=:id");
+						+ "parcela.id=:id");*/
+				.createNativeQuery("select * from PARCELA par");
 
 		q.setParameter("id", id);
 

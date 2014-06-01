@@ -4,7 +4,7 @@ body,div,td {
 	color: #666;
 }
 
-body {
+#BodyA {
 	background-color: #CCF0D7;
 	background-image: url(../static/obrazek_louka.png);
 	background-position: top center;
@@ -14,6 +14,13 @@ body {
 	margin-top: 140px;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+#BodyPrint {
+	background-color: #CCF0D7;
+	background-position: top center;
+	background-repeat: no-repeat;
+	text-align: justify;
 }
 
 a:link {
@@ -114,6 +121,11 @@ tr {
 
 .content {
 	margin-left: 220px
+}
+
+.print {
+	text-align: justify;
+	width: 27cm;
 }
 
 .vertical_menu_r {

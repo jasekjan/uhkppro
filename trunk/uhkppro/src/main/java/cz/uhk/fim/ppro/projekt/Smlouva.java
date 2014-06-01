@@ -1,12 +1,8 @@
 package cz.uhk.fim.ppro.projekt;
 
 import java.util.Date;
-import java.util.Set;
 
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -19,7 +15,6 @@ public class Smlouva extends BaseEntity {
 	private Date ucinnostDo;
 	private Klient klient;
 	private Integer sazbaHa;
-	private Set<Parcela> parcely;
 
 	public String getIdentifikator() {
 		return identifikator;
@@ -61,15 +56,4 @@ public class Smlouva extends BaseEntity {
 	public void setSazbaHa(Integer sazbaHa) {
 		this.sazbaHa = sazbaHa;
 	}
-
-	@ManyToMany
-	@JoinTable(name="par_ve_sml", joinColumns={@JoinColumn(name="smlouva_id")}, inverseJoinColumns={@JoinColumn(name="parcela_id")})
-	public Set<Parcela> getParcely() {
-		return parcely;
-	}
-
-	public void setParcely(Set<Parcela> parcely) {
-		this.parcely = parcely;
-	}
-
 }
